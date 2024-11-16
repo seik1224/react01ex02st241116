@@ -48,12 +48,12 @@ function App() {
             {/* li는 따로 TodoItem이라는 자식 컴포넌트를 만들어서 관리해주세요. */}
             
             {tasks.map((task, index)=>(
-              <li key={task} className="bg-white shadow-md rounded-lg px-4 py-2 mb-2 flex justify-between items-center cursor-pointer hover:bg-gray-100">
-                <span>{task}</span>
-                <button 
-                onClick={()=>handleRemoveTask(index)}
-                className="text-red-500 hover:text-red-700">삭제</button>
-              </li>
+              <TodoItem 
+                key={task}
+                task={task}
+                index={index}
+                handleRemoveTask={handleRemoveTask}
+              />
             ))}
             
           </ul>
@@ -64,6 +64,15 @@ function App() {
 }
 
 // 자식 컴포넌트
-function TodoItem() {}
+function TodoItem({task, index, handleRemoveTask}) {
+  return (
+    <li className="bg-white shadow-md rounded-lg px-4 py-2 mb-2 flex justify-between items-center cursor-pointer hover:bg-gray-100">
+      <span>{task}</span>
+      <button 
+      onClick={()=>handleRemoveTask(index)}
+      className="text-red-500 hover:text-red-700">삭제</button>
+    </li>
+  )
+}
 
 export default App;
