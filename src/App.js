@@ -4,7 +4,12 @@ import "./App.css";
 // 부모 컴포넌트
 function App() {
   const [tasks, setTasks] = useState([]);
-
+  const [newTask, setNewTask] = useState("");
+  
+  const handleInputChange = (e) => {
+    console.log(e.target.value);
+    setNewTask(e.target.value)
+  }
 
   return (
     <>
@@ -15,6 +20,8 @@ function App() {
             <input
               type="text"
               placeholder="할 일을 입력하세요"
+              value={newTask}
+              onChange={handleInputChange}
               className="flex-grow p-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <button className="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600">
