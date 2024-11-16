@@ -37,10 +37,14 @@ function App() {
           </div>
           <ul>
             {/* li는 따로 TodoItem이라는 자식 컴포넌트를 만들어서 관리해주세요. */}
-            <li className="bg-white shadow-md rounded-lg px-4 py-2 mb-2 flex justify-between items-center cursor-pointer hover:bg-gray-100">
-              <span>{tasks}</span>
-              <button className="text-red-500 hover:text-red-700">삭제</button>
-            </li>
+            
+            {tasks.map((task, index)=>(
+              <li className="bg-white shadow-md rounded-lg px-4 py-2 mb-2 flex justify-between items-center cursor-pointer hover:bg-gray-100">
+                <span>{task}</span>
+                <button className="text-red-500 hover:text-red-700">삭제</button>
+              </li>
+            ))}
+            
           </ul>
         </div>
       </div>
